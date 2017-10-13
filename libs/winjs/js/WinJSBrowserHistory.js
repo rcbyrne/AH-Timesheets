@@ -1,0 +1,125 @@
+import WinJS from 'winjs';
+
+var debugLog = (...args) => {
+    console.log('WinJSBrowserHistory:', ...args);
+}
+
+export default class WinJSBrowserHistory {
+
+    constructor(onApplyNavigaitonChange, onNavigationError) {
+
+        this.debug = true;
+
+        this._lastNavigationPromise = WinJS.Promise.as();
+
+        if(typeof onApplyNavigaitonChange !== "function") {
+            throw new Error("Expecting first argumet to be a function that can take 2 parametes (location: string, state: any) => {}");
+        }
+
+        this._isNavigationBeingHandled = false;
+        this._isWinJSNavigationBackBeingHandled = false;
+        this._isNavigationTriggeredByPopStateEvent = false;
+
+        this.onApplyNavigaitonChange = onApplyNavigaitonChange;
+        this.onNavigationError = onNavigationError;
+
+        WinJS.Navigation.addEventListener("beforenavigate", this.handleBeforeNavigate.bind(this));
+        WinJS.Navigation.addEventListener("navigating", this.handleNavigating.bind(this));
+        WinJS.Navigation.addEventListener("navigated", this.handleNavigated.bind(this));
+        window.addEventListener('popstate', this.handlePopState.bind(this));
+    }
+
+    // This cleanup() generally isn't called as this object usually lives as a singleton on the page
+    // but if youneed to remove it, be sure to call this so we clean up event handlers.
+    cleanup() {
+      this.debug && debugLog("cleanup()");
+      WinJS.Navigation.removeEventListener("beforenavigate", this.handleBeforeNavigate);
+      WinJS.Navigation.removeEventListener("navigating", this.handleNavigating);
+      WinJS.Navigation.removeEventListener("navigated", this.handleNavigated);
+    }
+
+    initFirstNavigation() {
+      WinJS.Navigation.navigate(this.getHashLessUrl(), location.state);
+    }
+
+    getHashLessUrl() {
+      var hash = location.hash || '';
+      if(hash[0] === "#") {
+          hash = hash.slice(1)
+      }
+      return hash;
+    }
+
+    handlePopState(eventObject) {
+        this.debug && debugLog("handlePopState:", eventObject, eventObject.path, eventObject.state);
+        if(!this._isNavigationBeingHandled && !this._isWinJSNavigationBackBeingHandled) {
+            this._isNavigationTriggeredByPopStateEvent = true;
+
+
+            this._isPopStateTriggeredEvent = true;
+
+            WinJS.Navigation.navigate(this.getHashLessUrl(), location.state);
+        }
+        this._isWinJSNavigationBackBeingHandled = false;
+    }
+
+    handleBeforeNavigate(eventObject) {
+        this._isNavigationBeingHandled = true;
+        this.debug && debugLog("handleBeforeNavigate:", eventObject);
+    }
+
+    handleNavigating(eventObject) {
+        this.debug && debugLog("handleNavigating:", eventObject);
+        this.debug && debugLog("handleNavigating delta:", eventObject.detail.delta);
+
+        this._lastNavigationPromise.cancel();
+
+        var location = eventObject.detail.location;
+        var state = eventObject.detail.state;
+        var delta = eventObject.detail.delta;
+
+        var applyNavigation = () => {
+          return new WinJS.Promise((resolve, reject) => {
+            try {
+              return resolve(this.onApplyNavigaitonChange(location, state));
+            } catch (err) {
+              this.debug && console.error("WinJSBrowserHistory Navigation error:", err);
+              return reject(err);
+            }
+          });
+        }
+
+        this._lastNavigationPromise = WinJS.Promise.as(applyNavigation()).then(() => {
+
+              if(!this._isNavigationTriggeredByPopStateEvent) {
+                  if(delta < 0) {
+                      this.debug && debugLog("handleNavigating delta < 0 - going back");
+
+                      this._isWinJSNavigationBackBeingHandled = true;
+                      window.history.go(delta);
+                  } else {
+                      this.debug && debugLog("handleNavigating history.pushState()", "#" + location);
+                      window.history.pushState(state, "", "#" + location);
+                  }
+              }
+
+        }, (err) => {
+            if(this.onNavigationError && typeof this.onNavigationError === "function") {
+                this.onNavigationError(err);
+            } else {
+                console.error("WinJSBrowserHistory Navigation error:", err);
+            }
+        });
+        eventObject.detail.setPromise(this._lastNavigationPromise);
+
+    }
+
+    handleNavigated(eventObject) {
+        this._isNavigationBeingHandled = false;
+        this._isNavigationTriggeredByPopStateEvent = false;
+
+
+        this.debug && debugLog("handleNavigated", eventObject);
+    }
+
+}

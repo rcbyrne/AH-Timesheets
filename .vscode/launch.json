@@ -1,0 +1,21 @@
+{
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "name": "Launch Chrome with sourcemaps",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://10.0.0.49/beta-portal/",
+            "webRoot": "${workspaceRoot}",
+            "sourceMaps": true
+        },
+        {
+            "name": "Launch Edge with sourcemaps",
+            "type": "edge",
+            "request": "launch",
+            "url": "http://10.0.0.49/beta-portal/",
+            "webRoot": "${workspaceRoot}",
+            "sourceMaps": true
+        }
+    ]
+}

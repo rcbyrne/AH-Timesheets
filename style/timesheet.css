@@ -1,0 +1,341 @@
+.timesheetWrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 48px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    display: flex;
+}
+
+.timesheetWrapper .mainCol {
+    flex: 1;
+    width: 0;
+
+    background: #fff;
+    padding: 32px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.timesheetWrapper .summaryCol {
+    flex: 0 0 auto;
+}
+
+    .timesheetWrapper .summaryCol > div {
+        margin: 0;
+        margin-left: 20px;
+        width: 148px;
+        border: 1px solid #aaa;
+        padding: 8px 0;
+        border-radius: 5px;
+        background: #fff;
+    }
+
+        .timesheetWrapper .summaryCol .summaryRow {
+            width: 100%;
+            justify-content: space-between;
+            padding: 8px 16px;
+            box-sizing: border-box;
+        }
+
+            .timesheetWrapper .summaryCol .summaryRow:hover {
+                background: #f5f5f5;
+                cursor: pointer;
+            }
+
+            .timesheetWrapper .summaryCol .summaryRow.selectedWeek,
+            .timesheetWrapper .summaryCol .summaryRow.selectedWeek:hover {
+                cursor: default;
+                background: #eee;
+            }
+
+            .timesheetWrapper .summaryCol .summaryRow p {
+                font-weight: 300;
+            }
+
+            .timesheetWrapper .summaryCol .summaryRow.activeWeek p {
+                color: #db8f23;
+            }
+
+
+/* Topper */
+.timesheetTopper {
+    border-bottom: 2px solid #999;
+}
+
+    .timesheetTopper > p,
+    .timesheetTopper > div {
+        padding: 8px 20px;
+        margin: 0;
+    }
+
+    .timesheetTopper p {
+        font-size: 24px;
+    }
+
+    .timesheetTopper .colDate{
+        flex: 0 0 auto;
+        text-align: left;
+        margin-right: auto;
+    }
+
+    .timesheetTopper .colDate.weekPicker {
+        cursor: pointer;
+    }
+
+        .timesheetTopper .colDate.weekPicker:hover {
+            background: #eee;
+        }
+
+        .timesheetTopper .colDate.weekPicker p.weekBreak {
+            margin: 0 8px;
+        }
+
+/* Entry Form */
+.newEntry {
+    height: 60px;
+    width: 100%;
+    margin: 32px 0;
+    border-left: 2px solid #ccc;
+}
+
+.timesheetWrapper > .newEntry {
+    position: relative;
+    z-index: 100;
+}
+
+    .newEntry button {
+        margin-top: 12px;
+    }
+
+    .newEntry .colDate,
+    .newEntry .Select:not(.is-disabled) .Select-control {
+        cursor: pointer;
+    }
+
+        .newEntry ::-ms-clear {
+            width : 0;
+            height: 0;
+        }
+        
+    .newEntry .Select {
+        height: 100%;
+        padding: 0;
+        border: none;
+        margin: none;
+    }
+
+    .newEntry .Select-control {
+        border-radius: 0;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+    }
+    
+    .newEntry .win-textbox,
+    .newEntry .Select-control {
+        height: 100%;
+        border: none;
+        box-sizing: border-box;
+        border-bottom: 2px solid #ccc;
+        border-top: 2px solid #ccc;
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 16px;
+    }
+
+    .newEntry .win-button {
+        height: 100%;
+        margin: 0;
+        border-radius: 0 5px 5px 0;
+        width: 80px;
+        min-width: 80px;
+    }
+
+        .newEntry .win-textbox:hover,
+        .newEntry .Select:not(.is-disabled):hover .Select-control {
+            background: #eee;
+        }
+
+        .newEntry .win-textbox:hover:not(:focus),
+        .newEntry .Select:not(.is-focused):hover .Select-control {
+            border-color: #aaa;
+        }
+        
+        .newEntry .valErr,
+        .newEntry .valErr .Select-control {
+            border-color: red !important;
+        }
+
+        .newEntry .Select .Select-placeholder,
+        .newEntry .Select .Select-value,
+        .newEntry .Select input {
+            height: 60px;
+            line-height: 60px;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-right: 24px;
+        }
+
+            .newEntry .Select.is-clearable .Select-placeholder,
+            .newEntry .Select.is-clearable .Select-value {
+                padding-right: 44px;
+            }
+
+            .mainCol > .newEntry .Select-value-label {
+                line-height: 60px;
+            }
+ 
+    .colProject {
+        flex: 0 0 80px;
+    }
+
+        .newEntry .colProject .Select-menu-outer {
+            width: 600px;
+        }
+
+        .newEntry .colProject {
+            flex: 1 0 200px;
+        }
+
+    .colNominal {
+        flex: 0 0 120px;
+    }
+
+        .newEntry .colNominal {
+            flex: 0 0 140px;
+        }
+    
+    .colDate {
+        flex: 0 0 140px;
+        text-align: center;
+    }
+    
+    .colDescription,
+    .colMain {
+        flex: 1 1 200px;
+    }
+
+    .colDuration {
+        flex: 0 0 100px;
+    }
+
+        h3.colDuration,
+        p.colDuration {
+            text-align: center;
+        }
+
+    .VirtualizedSelectOption {
+        display: block;
+        padding: 6px 20px 0 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;   
+    }
+
+/* Report */
+.reportWrapper {
+    position: relative
+}
+
+.loadingCover {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: rgba(255,255,255,0.7);
+}
+
+.daySummary .dayHead {
+    padding: 8px 20px;
+    background: #eee;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+    .daySummary .dayHead .colMain {
+        flex: 0 0 auto;
+        margin-right: auto;
+        cursor: pointer;
+    }
+
+        .daySummary .dayHead .colMain:hover {
+            color: #555;
+        }
+
+    .daySummary .dayHead h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+.daySummary .dayEntry {
+    min-height: 40px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+    .daySummary .dayEntry.placeholder {
+        color: #777;
+    }
+
+    .daySummary .dayEntry:not(.placeholder):hover {
+        background: #f5f5f5;
+        cursor: pointer;
+    }
+
+    .daySummary :last-of-type.dayEntry {
+        border-bottom: none;
+    }
+    
+/* Edit Entry */
+.editEntry {
+    position: relative;
+    z-index: 10;
+}
+
+.editEntry .newEntry {
+    margin: 0;
+    border-left: none;
+    height: 42px;
+    margin: -1px 0;
+}
+
+    .editEntry .newEntry .win-button,
+    .editEntry .newEntry .win-textbox, 
+    .editEntry .newEntry .Select-control {
+        border-top: 1px solid #777;
+        border-bottom: 1px solid #777;
+    }
+
+        .editEntry .newEntry .win-button {
+            border-radius: 0;
+            min-width: 60px;
+            width: 60px;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        .editEntry .newEntry .win-button.button-delete {
+            background: #CC0000;
+            color: #fff;
+        }
+
+    .editEntry .newEntry .Select .Select-placeholder,
+    .editEntry .newEntry .Select .Select-value,
+    .editEntry .newEntry .Select input {
+        height: 40px;
+        line-height: 40px;
+    }
+
+@media screen and (max-width: 1100px){
+
+    .timesheetWrapper .summaryCol {
+        display: none;
+    }
+
+}

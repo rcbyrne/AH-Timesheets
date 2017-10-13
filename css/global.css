@@ -1,0 +1,901 @@
+/* ----- Core listView ----- */
+.win-surface {
+	padding: 10px 0 48px 0;
+}
+
+/* ----- App Bar ----- */
+.titleToolBar {
+	display: flex;
+	align-items: center;
+	padding: 8px 20px;
+	min-height: 64px;
+}
+
+	.titleToolBar h1 {
+		margin-right: 20px;
+		line-height: 1.5;
+		font-size: 30px;
+	}
+	
+	.titleToolBar .basicToolbar{
+		flex: 1 1 auto;
+		text-align: right;
+		white-space: nowrap;
+	}
+	
+		.titleToolBar .win-commandingsurface .win-commandingsurface-actionarea {
+			height: auto !important;
+		}
+	
+		.titleToolBar .win-toolbar .win-commandingsurface 
+		.win-commandingsurface-actionarea .win-command .win-label {
+			display: inline-block;
+		}
+
+	.titleToolBar .win-commandingsurface .win-commandingsurface-actionarea {
+		background-color: transparent;
+	}
+	
+/* ----- Controls -----*/
+p.win-type-body.win-type-help {
+	padding: 2px;
+	margin: 0 10px;
+	border: 1px solid #ccc;
+	background: #eee;
+	cursor: pointer;
+	border-radius: 12px;
+	font-weight: 400;
+	height: 20px;
+	width: 20px;
+	text-align: center;
+	flex: 0 0 auto;
+}
+
+	p.win-type-body.win-type-help:hover {
+		background: #ddd;
+	}
+	
+html .titleToolBar button:enabled.win-command.active {
+	background-color: #db8f23
+}
+
+	html .titleToolBar button:enabled.win-command.active span .win-commandglyph,
+	html .titleToolBar button:enabled.win-command.active span {
+		color: #fff;
+	}
+	
+.pageSearchWrapper {
+	margin-bottom: 10px;
+	margin-right: 20px;
+	text-align: right;
+}
+
+	.pageSearchWrapper.flexRow,
+	.pageSearchWrapper .flexRow {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	
+		.pageSearchWrapper p.win-type-body.win-type-help {
+			margin-left: -36px; /* ensure search element is centred */
+		}
+		
+		.pageSearchWrapper select {
+			min-height: 32px;
+			height: 32px;
+			flex: 0 0 auto;
+		}
+		
+		.pageSearchWrapper .win-autosuggestbox {
+			width: 340px;
+			flex: 0 1 340px;
+			min-width: 100px;
+		}
+		
+		.pageSearchWrapper .win-autosuggestbox-flyout {
+			text-align: left;
+			box-shadow: 0px 2px 5px 0px #999;
+		}
+		
+.flexInlineSearch select {
+	margin-left: -2px;
+	position: relative;
+	left: 2px;
+	border-right-color: transparent;
+}
+	
+	.flexInlineSearch select:not(:disabled):hover {
+		background-color: #f5f5f5;
+		cursor: pointer;
+	}
+
+.flexInlineSearch .win-button.ah-icon {
+	position: relative;
+	width: 32px;
+	min-width: 32px;
+	padding: 0;
+	background: rgba(0, 0, 0, 0.4);
+	color: #fff;
+	padding-right: 2px; /* Correct the border added from input */
+}
+
+	.flexInlineSearch .win-button.ah-icon:focus,
+	.flexInlineSearch .win-button.ah-icon:active,
+	.flexInlineSearch .win-button.ah-icon:hover {
+		border: none;	
+	}
+	
+	.flexInlineSearch .win-button.ah-icon:active,
+	.flexInlineSearch .win-button.ah-icon:hover {
+		background: rgba(0, 0, 0, 0.5);		
+	}
+
+.pageSearchTracker {
+	justify-content: center;
+}
+
+.pageSearchTracker p.win-type-body.searchModule {
+	position: relative;
+	padding: 4px 8px;
+	border: 1px solid #ccc;
+	background: #eee;
+	cursor: pointer;
+	border-radius: 3px;
+	font-weight: 400;
+	margin: 0 10px;
+	overflow: hidden;
+}
+
+	.pageSearchTracker p.win-type-body.searchModule:hover {
+		background: #ddd;
+	}
+	
+	.pageSearchTracker p.win-type-body.searchModule:not(.searchModule-reset):hover:after {
+		position: absolute;
+		left: 0; right: 0; top: 0; bottom: 0;
+		padding: 4px;
+		text-align: center;
+		background: rgba(255,255,255,0.9);
+		content: 'Remove';
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+.pageSearchTracker .searchResetWrapper {
+	border-right: 1px solid #999;
+	padding-right: 10px;
+	margin-right: 10px;
+}
+
+.pageSearchTracker p.win-type-body.searchModule.searchModule-reset  {
+	background: rgba(191, 82, 82, 1);
+	border-color: rgba(191, 82, 82, 1);
+	color: #fff;
+}
+
+	.pageSearchTracker p.win-type-body.searchModule.searchModule-reset:hover {
+		background: rgba(191, 82, 82, 0.7);
+	}
+	
+/* Control Stacking */
+.controlStacking {
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+}
+
+	.controlStacking .formBody {
+		flex: 1 1 auto;
+		overflow-x: auto;
+	}
+	
+	.controlStacking .controlSection {
+		margin-bottom: 20px;
+	}
+	
+	.controlStacking input, 
+	.controlStacking h4,
+	.controlStacking select,
+	.controlStacking textarea {
+		max-width: 100%;
+		width: 100%;
+		background: #fff;
+		box-sizing: border-box;
+		margin: 0;
+	}
+	
+	.controlStacking h4 {
+		margin-bottom: 4px;
+	}
+	
+	.controlStacking select {
+		padding: 0;
+	}
+	
+	.controlStacking input,
+	.controlStacking select {
+		min-height: 30px;
+		height: 36px;
+	}
+	
+		.controlStacking input[type="checkbox"]{
+			width: 20px;
+			margin-left: 30px;
+			margin-right: 5px;
+		}
+		
+			.controlStacking input[type="checkbox"]#newProjectCheck {
+				margin-left: 0;
+			}
+	
+		.controlStacking input:disabled,
+		.controlStacking select:disabled {
+			background: #eee;
+			color: #555;
+			border-color: transparent;
+		}
+	
+	
+	/* Control Stacking: Colour Modifyers */
+	.controlStacking .isError {
+		border-color: red;
+	}	
+	
+	.controlStacking .win-button.win-button-primary {
+		background: #db8f23;
+	}
+		
+	.controlStacking .win-button.button-saveEdit,
+	.controlStacking .win-button.button-cancelEdit {
+		margin-top: 15px;
+	}
+
+
+.saveInProgress .win-commandicon {    
+    animation: syncAnimation .5s linear infinite
+}
+
+.saveInProgress .win-commandicon .win-commandimage {
+	top: -1px;
+}
+
+@keyframes syncAnimation { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.notVisible {
+	visibility: hidden;
+}
+
+.displayNone {
+	display: none;
+}
+
+.forceNone {
+	display: none !important;
+    opacity: 0;
+}
+
+    .selectedPage {
+        animation: fadeIn 0.3s;        
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+
+.formCol {
+	float: left;
+	margin-right: 50px;
+}
+
+.clearBoth {
+	clear: both;
+}
+
+.errorText {
+	color: red;
+}
+
+ul.floatCols {
+	margin: 0;
+	padding: 0;
+}
+
+ul.floatCols:not(.cancelColFloat){
+	display: flex;
+}
+	
+	ul.floatCols li {
+		list-style: none;
+		width: 100%;
+	}
+	
+		
+		ul.floatCols:not(.cancelColFloat) li.quarterFloatCol {
+			flex: 1 0 25%;
+		}
+		
+		ul.floatCols:not(.cancelColFloat) li.thirdFloatCol {
+			flex: 1 0 33%;
+		}
+		
+		ul.floatCols:not(.cancelColFloat) li.halfFloatCol {
+			flex: 1 0 50%;
+		}
+		
+		ul.floatCols:not(.cancelColFloat) li.fillFloatCol {
+			flex: 1 1 auto;
+			overflow: hidden;
+		}
+        
+		ul.floatCols:not(.cancelColFloat) li.fixedFloatCol {
+			flex: 0 0 auto;
+            width: auto;
+		}
+
+		ul.floatCols:not(.cancelColFloat) li.shrinkFloatCol {
+			flex: 0 1 auto;
+            width: auto;
+			overflow: hidden;
+		}
+		
+.flexRow {
+	display: flex;
+	align-items: center;
+}
+
+	.flexRow .win-dropdown {
+		margin: -5px 0;
+		background: transparent;
+	}
+	
+	.flexRow p {
+		margin: 0;
+	}
+	
+.verticalCarousel {
+	display: inline-block;
+	height: 36px;
+	overflow: hidden;
+}
+		
+/* Basic Property Stacking */
+.propWrapper {
+	display: flex;
+	margin: 0;
+    align-items: center;
+}
+	
+	
+	.propWrapper .propQ,
+	.propWrapper .propA {
+		margin: 0;
+		padding: 4px 8px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	
+		.propWrapper .propQ {
+			flex: 0 0 100px;
+			width: 100px;
+		}
+		
+		.propA {
+			flex: 1 1 auto;
+		}
+		
+/* Contact Flyouts */
+.contactFlyout .titleToolBar {
+	border-bottom: 1px solid #ccc;
+	margin-top: -10px;
+	margin-bottom: 10px;
+	padding-right: 0;
+	padding: 0;
+}
+
+.contactFlyout h3 {
+	font-size: 32px;
+}
+
+.contactFlyout .propWrapper .propA,
+.contactFlyout .propWrapper .propQ {
+	font-size: 16px;
+	margin: 0;
+	padding: 2px;
+	font-weight: 300;
+}
+
+		.contactFlyout .propWrapper .propA  {
+			font-weight: 400;			
+		}
+        
+.actionable,
+.actionTarget {
+	cursor: pointer;	
+}
+			
+	.actionable:hover {
+		background: rgba(0,0,0,0.1);
+	}
+	
+	.actionTarget {
+		text-decoration: underline;
+	}
+	
+		.actionTarget:hover{
+			color: #db8f23;
+		}
+	
+	.inlineTypeable {
+		cursor: text;
+	}
+    
+.txt-wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.txt-prime {
+	padding: 4px 6px;
+}
+
+	.txt-wrapper .txt-prime{
+		border-left: 1px dashed #ccc;
+	}
+
+	.txt-wrapper .txt-prime:first-of-type {
+		border: none;
+	}
+
+    .txt-prime p {
+		padding: 2px 6px;
+		box-sizing: border-box;
+        text-align: center;
+    }                
+    
+		.txt-prime p:not(.txt-planned) {
+			padding-bottom: 0;
+			font-size: 15px;
+		}
+
+		.txt-prime p:not(.txt-planned):before {
+			content: "~";
+		}
+
+		/* Default Date Style */
+		.txt-prime p.txt-planned {
+			border: 1px solid rgba(0,0,0,0.4);
+			margin: -1px;
+			border-radius: 100px;
+			background: #999;
+			color: #fff;    
+		}
+
+			/* PASSIVE: FADED */
+			.txt-prime.txt-passive p:not(.txt-planned) {
+				color: #777;
+			}
+			
+			.txt-prime.txt-passive p.txt-planned {
+				border: 1px solid rgba(0,144,0,0.3);
+				background: rgba(0,144,0,0.1);
+				color: #777;
+			}
+			
+			/* REASSURANCE: GREEN */
+			.txt-color.txt-reassurance p:not(.txt-planned),
+			.txt-prime.txt-reassurance p:not(.txt-planned) {
+				color: #009000 !important;
+			}
+			
+			.txt-color.txt-reassurance p.txt-planned,
+			.txt-prime.txt-reassurance p.txt-planned {
+				border-color: #009000;
+				background: rgba(0,144,0,0.6);
+				color: #fff !important;
+			}
+
+			/* ATTENTION: ORANGE */
+			.txt-color.txt-attention p:not(.txt-planned),
+			.txt-prime.txt-attention p:not(.txt-planned) {
+				color: #db8f23 !important;
+			}
+		
+			.txt-color.txt-attention p.txt-planned,
+			.txt-prime.txt-attention p.txt-planned {
+				border-color: #db8f23;
+				background: rgba(219,143,35, 0.8);
+				color: #fff !important;
+			}
+
+			/* WARNING: RED */
+			.txt-color.txt-warning p:not(.txt-planned),
+			.txt-prime.txt-warning p:not(.txt-planned) {
+				color: #b00000 !important;
+			}
+			
+			.txt-color.txt-warning p.txt-planned,
+			.txt-prime.txt-warning p.txt-planned {
+				border-color: #b00000;
+				background: rgba(200,0,0,0.6);
+				color: #fff !important;
+			}
+
+			/* UNREPORTED: CLEAR */
+			.txt-prime.txt-unreported p.txt-planned {
+				background: none;
+				color: #000;
+			}
+
+			.txt-wrapper:not(.unwanted-reporting) .txt-prime.txt-unreported p:not(.txt-planned) {
+				visibility: hidden;
+			}
+    
+.cell-error .txt-prime p:not(.txt-planned) {
+	background: repeating-linear-gradient(45deg, rgba(255,220,0,0.25),rgba(255,210,0,0.75) 10px) !important;
+    border: 1px solid rgb(255,200,0) !important;
+	line-height: 30px;
+	border-radius: 3px;
+}
+	
+/* Interactive Section */
+.win-interact-target {
+    flex: 1 0 150px;
+    padding: 0;
+    height: 100%;
+    cursor: pointer;
+    /* padding-left: see below */
+}
+    
+    .win-interact-target p {
+        font-family: 'lato';
+        padding: 0 8px;
+        /* padding-left: see below */
+    }
+    
+    /* Controls padding either side of diamond */
+    .win-interact-target h2,
+    .win-interact-target p,
+    .win-interact-target {
+        /* 14px to adjust for 2px border on diamond (14 - 2 = 12) */
+        padding-left: 14px; 
+    }
+    
+/* CheckBox Styling */
+.dummy-checkbox {
+    /* Visual height 20px due to rotate [(14^2 + 14^2)^0.5] = 20 */
+    height: 14px;
+    width: 14px;
+    border: 2px solid #777;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+}
+
+    .dummy-checkbox-tick {
+        font-family: "Segoe UI", sans-serif, "Segoe MDL2 Assets", "Symbols";
+        font-size: 14px;
+        position: absolute;
+        bottom: -4px;
+        left:0;
+        display: none;
+    }
+
+	.plannedMS .dummy-checkbox {
+		/* Transform */
+		-ms-transform: rotate(45deg);
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-o-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+
+/* Checkbox Hover Styles */
+.win-interact-target:hover .dummy-checkbox {
+    background: rgba(0,0,0,0.2);
+}
+
+.win-interact-target:hover .dummy-checkbox-tick {
+    display: block;
+    color: #777;
+}
+
+/* Complete Styles */
+.completedMS .dummy-checkbox {
+    border-color: #009000;
+    background: rgba(0,144,0,0.5);
+}
+
+.transitionMS .dummy-checkbox {
+	border-color: rgba(219,143,35,1);
+	background: rgba(219,143,35,0.5);
+}
+
+.transitionMS .win-interact-target:hover .dummy-checkbox,
+.completedMS .win-interact-target:hover .dummy-checkbox {
+    background: transparent;
+}
+
+.completedMS .dummy-checkbox-tick {
+    color: #009000;
+    display: block;
+}
+
+/* Plan Styles */
+
+table.planTable {
+	border-collapse: collapse;
+	border-top: none;
+	margin-bottom: 48px;
+	table-layout: fixed;
+}
+
+/* Table Head */
+
+table.planTable thead {
+	background: #555;
+	border: 1px solid #555;
+}
+
+	table.planTable thead th {
+		padding: 8px 12px;
+		text-align: left;
+		color: #fff;
+	}
+
+	table.planTable thead th.rowID {
+		width: 32px;
+		text-align: center;
+	}
+
+	table.planTable thead th.threeQuaterUnit {
+		width: 30%
+	}
+
+	table.planTable thead th.singleUnit {
+		width: 40%;
+	}
+
+	table.planTable thead th.singleAndQuaterUnit {
+		width: 50%;
+	}
+
+	table.planTable thead th.rowTitle {
+		width: 100%;
+	}
+
+	table.planTable thead th.deleteStageCol {
+		width: 20px;
+	}
+
+	table.planTable th,
+	table.planTable td {
+		overflow: hidden;
+	}
+
+/* Table Body */
+
+table.planTable tr.reportedTask,
+table.planTable tr.reportedTask td,
+table.planTable tr.blankPlannedTask,
+table.planTable tr.blankPlannedTask td {
+	height: 48px;
+}
+
+table.planTable tr.major,
+table.planTable tr.major td,
+table.planTable tr.plannedStage,
+table.planTable tr.plannedStage td {
+	height: 36px;
+}
+
+	table.planTable tr.major td,
+	table.planTable tr.plannedStage td {
+		background: #eee;
+	}
+
+table.planTable tr.minor,
+table.planTable tr.plannedTask td {
+	height: 32px;
+}
+
+	table.planTable td {
+		border: 1px solid #ccc;
+		padding: 0;
+		position: static;
+	}
+
+		table.planTable td p {
+			user-select: none;
+			-ms-user-select: none;
+			-webkit-user-select: none;
+		}
+
+		table.planTable td.deleteStageCell {
+			cursor: pointer;
+		}
+
+			table.planTable td.deleteStageCell p {
+				text-align: center;
+				width: 100%;
+				color: #999;
+			}
+
+			table.planTable td.deleteStageCell:hover {
+				background: rgba(0,0,0,0.1);
+			}
+
+			table.planTable td.deleteStageCell:hover p {
+				color: rgb(200,0,0);
+			}
+
+table.planTable.stripeStyled {
+    background: #eee;
+    background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 20px, transparent 20px, transparent 22px);	
+}
+
+table.planTable.stripeStyled tbody tr:not(.blankPlannedTask) {
+    background: #fff;
+}
+
+table.planTable .blankPlannedTask .flexRow {
+	justify-content: space-between;
+	padding-right: 8px;
+}
+
+table.planTable p.itemID {
+	text-align: center;
+	width: 100%;
+}
+
+table.planTable .task-completed p.itemID.ah-icon,
+table.planTable .plannedMS p.itemID {
+	color: #009000;
+}
+
+table.planTable .reportedTask p.itemID,
+table.planTable .blankPlannedTask p.itemID {
+	font-weight: 300;
+}
+
+table.planTable p.taskTitles {
+	padding-left: 20px;
+	box-sizing: border-box;
+	font-weight: 300;
+}
+
+	table.planTable p,
+	table.planTable select.win-dropdown,
+	table.planTable input.win-textbox {
+		border: none;
+		outline: none;
+		background: transparent;
+		white-space: nowrap;
+	}
+
+	table.planTable select.win-dropdown,
+	table.planTable input.win-textbox {
+		min-height: 32px;
+		height: 100%;
+		margin: 0;
+	}
+
+	table.planTable .input-imitate {
+		cursor: pointer;
+	}
+
+	table.planTable input.win-textbox,
+	table.planTable .input-imitate {
+		padding: 0 12px;
+	}
+	
+	table.planTable input.win-textbox,
+	table.planTable .input-imitate p {
+		font-size: 15px;
+	}
+
+		table.planTable .input-imitate:hover,
+		table.planTable select.win-dropdown:hover,
+		table.planTable input.win-textbox:hover {
+			background: rgba(200,200,200,0.2);
+		}
+		
+		table.planTable select.win-dropdown:focus,
+		table.planTable input.win-textbox:focus {
+			border: 1px solid #555;
+		}
+
+        table.planTable .plannedMS * {
+            font-size: 14px;
+            color: #777;
+        }
+
+        table.planTable .bleedRight,
+        table.planTable .plannedMS td:nth-child(1),
+        table.planTable .blankPlannedTask td:nth-child(1),
+        table.planTable .blankPlannedTask td:nth-child(2),
+        table.planTable .blankPlannedTask td:nth-child(3){
+            border-right: none;
+        }
+
+        table.planTable .bleedLeft,
+        table.planTable .blankPlannedTask td:nth-child(2),
+        table.planTable .blankPlannedTask td:nth-child(3),
+        table.planTable .blankPlannedTask td:nth-child(4),
+        table.planTable .plannedMS td:nth-child(2) {
+            border-left: none;
+        }
+
+                table.planTable .plannedStage .stageBefore,
+                table.planTable .plannedStage .stageBefore p {
+                    background: #009000;
+                    color: #fff;
+                }
+
+                table.planTable .plannedStage .stageSelected,
+                table.planTable .plannedStage .stageSelected p {
+                    background: #db8f23;
+                    color: #fff;
+                }
+
+                table.planTable .plannedStage .stageAfter,
+                table.planTable .plannedStage .stageAfter p {
+                    background: #b31b1b;
+                    color: #fff;
+                }
+
+            table.planTable .plannedStage * {
+                color: #000;
+                font-weight: 400;
+            }
+
+			table.planTable .ah-datepicker.flexRow {
+				justify-content: space-between
+			}
+
+			table.planTable p.taskDates {
+				background: #555;
+				color: #fff;
+				border-radius: 100px;
+				padding: 2px 8px;
+				font-size: 14px;
+			}
+
+			table.planTable .cell-discouraged,
+			table.planTable .cell-discouraged:hover {
+				cursor: default;
+				color: #555;
+			}
+
+.loadingScreen {
+    position: absolute;
+    top: 0px; bottom: 0px;
+    left: 0px; right: 0px;
+    background: #fff;
+    z-index: 10;
+    text-align: center;
+    padding-top: 48px;
+    opacity: 1;
+    transition: opacity 300ms linear;
+}
+
+    .loadingScreen h3 {
+        font-size: 30px;
+    }
+
+	
+#searchHelpFlyout h3 {
+	font-size: 30px;
+	margin-bottom: 12px;
+}
+
+#searchHelpFlyout p {
+	font-weight: 400;
+	margin-bottom: 8px;
+}
+
+#searchHelpFlyout p span {
+	font-weight: 600;
+	color: #db8f23;
+}

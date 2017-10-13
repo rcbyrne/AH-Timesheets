@@ -1,0 +1,670 @@
+/* ----- Default look of element ----- */
+
+/* COLORS
+	Primary: #db8f23 / rgba(219,143,35,0) (Orange) 
+	Secondary: #3e3c75 (Andron Purple)
+*/
+html, body {
+	font-family: "Segoe UI", sans-serif, "Segoe MDL2 Assets", "Symbols";
+	font-size: 16px;
+	background: #eee;
+	overflow-x: auto;
+}
+
+#applicationWrapper {
+	min-width: 900px;
+}
+
+table, th, td {
+    border-collapse: collapse;
+}
+
+/* Headings in Lato - Smooth Predominant Font */
+h1,h2,h3,h4,th,
+h1.win-h1,h2.win-h2,h3.win-h3,h4.win-h4 {
+	font-family: 'Lato', sans-serif;
+}
+
+h2, h2.win-h2 {
+    font-size: 30px;
+}
+
+h1, h1.win-h1 {
+	margin-bottom: 0
+}
+
+input.win-textbox,
+select.win-dropdown {
+	font-family: "Source Sans Pro",sans-serif;
+    height: 32px;
+}
+
+input.win-textbox:disabled,
+select.win-dropdown:disabled {
+	cursor: default !important;
+}
+
+/* Body font in Source Sans Pro - Very smooth font */
+p,p.win-type-body, input {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+    margin: 0;
+}
+
+.win-listview .win-headercontainer {
+	padding: 8px;
+}
+	.win-listview .win-headercontainer p {
+		font-weight: 300;
+		font-size: 18px;
+		text-align: center;
+	}
+
+/* Links & Buttons in Segoe UI */
+button, button.win-button, h4.nav-head, .win-commandicon {
+	font-family: "Segoe UI", sans-serif, "Segoe MDL2 Assets", "Symbols";
+    cursor: pointer;
+}
+
+button.win-button:focus {
+	border: 2px dashed #000;
+}
+
+textarea, input, select { outline: none; }
+
+input.win-textbox:focus, input.win-textbox:hover:focus, 
+textarea.win-textbox:focus, textarea.win-textbox:hover:focus, 
+textarea.win-textarea:focus, textarea.win-textarea:hover:focus,
+.Select.is-focused .Select-control, .Select.is-focused:hover .Select-control,
+div.win-flyout, div.win-settingsflyout, 
+textarea:focus, input:focus, select:focus { 
+	border-color: #db8f23;
+	border-color: #3e3c75; 
+	border-color: rgb(0, 120, 215);
+}
+
+.ah-datepicker,
+input.ah-datepicker {
+    cursor: pointer;
+    position: relative;
+}
+
+.win-splitview-pane {
+	background: #333;
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+}
+
+    .win-splitviewcommand-button-content {
+        padding: 0;
+    }
+    
+    .win-splitviewcommand-icon {
+        text-align: center;
+        width: 48px;
+        margin-right: 0;   
+    }
+    
+	.win-splitview-pane * {
+		color: #fff !important;
+	}
+    
+
+/* Default Buttons */
+.win-button {
+    position: relative;
+	outline: none;
+	border: 2px solid transparent;
+    background: #ccc;
+    border: none;
+}
+
+	.win-button:disabled {
+		cursor: default;
+	}
+	
+    .win-button:hover {
+        background: rgba(0,0,0,0.15)
+    }
+
+	.win-button-primary.win-button,
+	.win-button-primary.win-button[type=submit] {
+		background-color: #db8f23;
+	}
+    
+        .win-button-primary.win-button:not(:disabled):hover,
+        .win-button-primary.win-button[type=submit]:not(:disabled):hover {
+            background-color: rgba(219,143,35,0.9);
+        }
+	
+	.win-button:focus {
+		border-color:rgba(0,0,0,0.4);
+	}	
+	
+	.win-button.button-saveEdit,
+	.win-button.button-cancelEdit {
+		padding: 4px 16px;
+		min-width: 0;
+		min-height: 30px;
+		box-sizing: border-box;		
+		background: none;
+		border: none;
+	}
+	
+	.win-button.button-saveEdit {
+		color: #009000;
+	}
+	
+		.win-button.button-saveEdit:hover {
+			background-color: #44b344;
+			color: #fff;
+		}
+	
+	.win-button.button-cancelEdit {
+		color: #e04848;
+	}
+		
+		button.win-button.button-cancelEdit:hover {
+			background: #e04848;
+			color: #fff;
+		}
+		
+.flatButton {
+	border: none;
+	min-height: 32px;
+	background: #eee;
+	min-width: 120px;
+	padding: 4px 8px;
+	line-height: 1.333;
+	font-weight: 400;
+	font-size: 15px;
+	color: #000;
+	cursor: pointer;
+	outline: none;
+	box-shadow: none;
+	transition: none;
+}
+
+	.flatButton-lightHover:hover{
+		opacity: 0.8;
+	}
+	
+.win-flyout{
+	padding: 30px;
+	width: 500px;
+	max-width: 500px;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+
+	.win-flyout .flyoutTitle {
+		font-weight: 200;
+		font-size: 25px;
+		margin: 0;
+		margin-bottom: 20px;	
+	}
+	
+	.win-flyout .flyoutBody {
+		margin-bottom: 20px;
+	}
+
+.ah-icon {
+	color: #999;
+	font-family: "Segoe MDL2 Assets", "Symbols";
+	font-style: normal;
+	height: 16px;
+	width: 16px;
+}
+
+.ah-icon.ah-icon-actionable {
+	cursor: pointer;    
+}
+
+	.ah-icon.ah-icon-actionable:hover {
+		color: #000;
+		background: #eee;
+	}
+	
+	.ah-icon.ah-icon-actionable:active {
+		background: #ccc;
+	}
+    
+.win-listview {
+    height: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+/* ----- Splash ----- */
+#applicationSplash {
+	position: fixed;
+	top: 0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	z-index: 1000;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+	#applicationSplash h1.win-h1 {
+		font-family: "Segoe UI", sans-serif, "Segoe MDL2 Assets", "Symbols";
+		font-size: 60px;
+		margin-top: calc(40vh - 70px);
+	}
+	
+	#applicationSplash h2.win-h2 {
+		font-family: "Segoe UI", sans-serif, "Segoe MDL2 Assets", "Symbols";
+	}
+  
+/* ----- Password ----- */
+.alertCover {
+	position: fixed;
+	z-index: 10000;
+	top: 0; left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,0.25);
+}
+
+	.alertCover .passwordForm {
+		margin: 50px auto;
+		width: 452px;
+		padding: 30px 50px;
+		background: #fff;
+		box-shadow: 0 0 5px 0 #555;
+	}
+	
+		.alertCover .passwordForm h2 {
+			font-size: 24px;
+			font-weight: 200;
+			margin: 0;
+			margin-bottom: 12px;
+		}
+
+		.alertCover .passwordForm h3 {
+			font-size: 20px;
+			font-weight: 400;
+			margin: 0;
+			margin-bottom: 8px;
+		}
+	
+		.alertCover .passwordForm .coverBreak {
+			border-top: 1px solid #ccc;
+			padding-top: 20px;			
+		}
+		
+		.alertCover .passwordForm input {
+			width: 100%;
+			margin: 0;
+			margin-bottom: 32px;
+		}
+
+		.alertCover .passwordForm p {
+			margin: 0;
+			margin-bottom: 20px;
+		}
+
+
+/* ----- Navigation ----- */
+.win-splitviewpanetoggle {
+	float: left;
+}
+
+.nav-commands-primary {
+    margin-top: 20px;
+    flex: 1 0 auto;
+    -webkit-flex: 1 0 auto;
+}
+
+.nav-commands-account {
+    margin-bottom: 20px;
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+}
+
+.win-splitviewcommand-button {
+	background-color: transparent;
+    cursor: pointer;
+}
+
+    #appSplitView .win-splitviewcommand:not(.navActive) .win-splitviewcommand-button:hover {
+        background: rgba(0,0,0,0.2);        
+    }
+    
+    #appSplitView .win-splitviewcommand.navActive .win-splitviewcommand-button  {
+        background: rgba(255,255,255,0.2);
+        cursor: default;
+    }
+
+.win-splitview-pane-closed .win-splitviewcommand-label {
+	visibility: hidden;
+}
+.win-splitview-content {
+	background-color: #fff;
+}
+
+		#appNav .header {
+			white-space: nowrap;
+		}
+
+			#appNav .header .title {
+				font-size: 25px;
+				margin-left: 15px;
+				margin-top: 10px;
+				vertical-align: middle;
+				display: inline-block;
+			}
+
+.win-back{	
+	cursor: pointer;
+}
+
+.win-back::before {
+	vertical-align: baseline;
+}
+
+	.win-back:hover::before {
+		color: #555;
+	}
+
+/* ----- Portal Content Area ----- */
+#contentHost {
+	height: 100%;
+	background-color: #fff;
+	box-sizing: border-box;
+	margin: 0;
+    overflow-x: auto;
+}
+
+	#contentHost  .content {
+		height: 100%;
+		display: flex;
+		flex-flow: column;
+        min-width: 800px;
+        overflow: hidden;
+        
+	}
+
+        /* .header defines the head of the page */
+		#contentHost .content .header {
+			flex: 0 0 auto;
+			border-bottom: 2px solid #555;
+		}
+			
+			#contentHost .content .header #frozenRow {
+				border-top: 2px solid #555;
+			}
+            
+            #contentHost .content.plainPage .header {
+                border: none;
+            } 
+        
+        /* result defines the body of the page */
+        #contentHost .content .result {
+			height: 100%;
+            flex: 1 1 auto;
+            overflow: hidden;
+            position: relative;
+        }
+		
+		 #contentHost .content .result.resultMargin {
+			 margin: 0 52px;
+		 }
+
+            /* ----- Portal Scroll Management ----- */
+
+            /* pageScrollEl defines the scroll area for the page */
+            /* If the page holds a large LV, ensure this class is
+                not used and the LV is allowed to handle scrolling */
+            #contentHost .content .result.pageScrollEl {
+                display: block;
+                overflow-y: auto;
+                -ms-overflow-style: -ms-autohiding-scrollbar;
+            }
+    
+                /* Turn vertical scrolling off in the listview under pageScrollEl */
+                .pageScrollEl .win-listview,
+                .pageScrollEl .win-listview > .win-viewport.win-vertical,
+                .noListViewScrolling .win-listview > .win-viewport.win-vertical {
+					overflow: hidden;
+                    height: auto;
+                }
+
+                /* webkit browsers can't use height 100% with flex */
+                /* the ListView needs to use a flex layout to scroll */
+                .result:not(.pageScrollEl) > .win-listview {
+                    position: absolute !important;
+                    top: 0; bottom: 0;
+                    left: 0; right: 0;
+                }
+                
+/* VIS Styling */
+.timelineWrapper {
+	position: relative;
+    overflow: hidden;
+}
+
+.vis-timeline {
+    border: 2px solid #777;
+}
+
+.vis-current-time {
+	z-index: 100;
+}
+
+.vis-background.vis-horizontal {
+    background: #fff;
+}
+
+.vis-top.vis-panel {
+    background: #ddd;
+	border: 0;
+}
+
+    .vis-time-axis .vis-text,
+    .vis-labelset .vis-label .vis-inner,
+    .vis-top.vis-panel .vis-text.vis-major {
+	    font-family: 'Lato', sans-serif;
+        color: #333;
+    }
+
+    .vis-top.vis-panel .vis-text.vis-major {
+        font-size: 1.2em;
+        font-weight: 600;
+        padding: 4px 6px;
+    }  
+      
+.vis-panel.vis-center {
+    z-index: 20;
+    border: none;
+	border-top: 2px solid #555
+}
+ 
+.vis-panel .vis-shadow {
+	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+}
+
+ /* Time Axis Styling */   
+.vis-time-axis {
+    z-index: 10;
+}
+    
+    .vis-time-axis .vis-vertical.vis-major {
+        border-color: rgba(0,0,0,0.5);
+    }
+    
+    .vis-time-axis .vis-vertical.vis-minor {
+        border-color: rgba(0,0,0,0.12);
+    }
+    
+    .vis-time-axis .vis-grid.vis-saturday,
+    .vis-time-axis .vis-grid.vis-sunday {
+        background: rgba(0,0,0,0.05);
+		background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, 0.5) 35px, rgba(255, 255, 255, 0.5) 70px);
+    }
+
+	.vis-time-axis .vis-text.vis-saturday,
+	.vis-time-axis .vis-text.vis-sunday {
+		font-weight: 600;
+	}
+
+/* Vis Element Styles */
+.vis-dot,
+.vis-line {
+    border-color: #db8f23;
+}
+
+.vis-box.vis-item,
+.vis-range.vis-item,
+.vis-item.vis-point .vis-item-content {
+    background: #999;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 2px;
+}
+
+.vis-item.vis-background {
+	border: 1px solid #555;
+	border-top: none;
+	border-bottom: none;
+	background: #eee;
+	background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 20px, transparent 20px, transparent 22px);
+}
+
+    .vis-item .vis-item-content {
+		color: #fff;
+        padding: 4px 6px;
+	    font-family: 'Source Sans Pro', sans-serif;
+    }
+	
+    	.vis-item.vis-background .vis-item-content {
+			white-space: normal;
+			color: #000;
+		}
+    
+    .vis-item.vis-point .vis-item.vis-dot {
+        border-color: #555;
+		border-width: 3px;
+    }
+    
+    .vis-range.vis-item {
+        border-radius: 0;
+		box-sizing: content-box;
+    }
+
+        .vis-range.vis-item .vis-item-content {
+            width: 100%;
+        }
+
+.vis-box.vis-item.vis-status-1,
+.vis-range.vis-item.vis-status-1,
+.vis-item.vis-point.vis-status-1 .vis-item-content {
+    background: rgb(233, 155, 57);
+}
+  
+.vis-range.vis-item.vis-status-2,
+.vis-box.vis-item.vis-status-2,
+.vis-item.vis-point.vis-status-2 .vis-item-content{
+    background: rgb(102, 188, 102);
+}
+
+.vis-box.vis-item.vis-status--1,
+.vis-range.vis-item.vis-status--1,
+.vis-item.vis-point.vis-status--1 .vis-item-content {
+    background: rgb(0,157,255);
+}
+
+.vis-box.vis-item.vis-status-warning,
+.vis-range.vis-item.vis-status-warning,
+.vis-item.vis-point.vis-status-warning .vis-item-content {
+	background: rgb(214,63,63);
+}
+
+.vis-box.vis-item.vis-status-late,
+.vis-range.vis-item.vis-status-late,
+.vis-item.vis-point.vis-status-late .vis-item-content {
+    background: yellow;
+	color: #333;
+}
+
+.vis-selected.vis-item.vis-selected {
+    background: #3e3c75;
+}
+
+    .vis-selected.vis-item.vis-selected .vis-dot {
+        border-color: #3e3c75;
+    }
+
+.projectTimeline {
+	height: 300px;
+}
+
+	.projectTimeline .vis-range.vis-item .vis-item-content {
+		padding: 8px;
+		font-family: "lato", sans-serif;
+	}
+
+	.projectTimeline .vis-item.vis-point .vis-item-content {
+		background: none;
+		border: none;
+		color: #000;
+	}
+
+.groupedTimeline .vis-top.vis-panel {
+    border-left: 2px solid #999;
+    background: #ddd;
+}
+
+.groupedTimeline .vis-panel.vis-left {
+    border-top: 2px solid #555;
+    border-right: 2px solid #999;
+    z-index: 50;
+}
+
+    .groupedTimeline .vis-panel.vis-left .vis-inner {
+        font-weight: 600;
+        margin-right: 8px;
+    }
+
+.groupedTimeline .vis-foreground .vis-group,
+.groupedTimeline .vis-panel.vis-left .vis-label {
+    border-color: #aaa;
+
+    /* 
+    
+    box-sizing: content-box;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+
+    Editing the group spacing casuses Vis.js to calculate 
+    scrolling height wrong. This can be manually asjusted 
+    on line 19373 if it is desired.
+    
+    */
+}
+.timeline_emptySearch {
+
+    position: absolute;
+    text-align: center;
+    top: 12%;
+    left: 0px; right: 0px;
+
+    margin: 0 auto;
+    margin-top: 56px;
+    padding: 6px 0;
+    z-index: 1000;
+
+    background: rgba(0,0,0,0.1);
+    border: 2px solid rgba(0,0,0,0.2);
+    border-right: 0;
+    border-left: 0;
+    
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none; 
+}

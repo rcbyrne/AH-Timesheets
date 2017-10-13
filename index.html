@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Andron Portal</title>
+		<meta charset="UTF-8"> 
+		<link rel="Site Icon" href="icon_128.png"> 
+
+		<!-- Lib CSS -->
+		<link href="libs/winjs/css/ui-light.css" rel="stylesheet" />
+
+        <!-- CSS -->
+		<link href="css/imports.css" rel="stylesheet" />
+		<link href="css/default.css" rel="stylesheet" />
+		<link href="css/global.css" rel="stylesheet" />
+		<link href="css/datePicker.css" rel="stylesheet" />
+		
+		<!-- Win JS -->
+		<script src="libs/winjs/js/base.js"></script>
+		<script src="libs/winjs/js/ui.js"></script>
+		<!--<script src="libs/winjs/js/WinJSBrowserHistory.js"></script>-->
+	</head>
+	<body>
+		<!-- Wrapper -->
+		<div id="applicationWrapper">
+		</div>
+		
+		<!-- App Cover -->
+		<div id="genericCover" class="alertCover displayNone">
+			<form id="alertCover" class="passwordForm displayNone" onsubmit="return false;">
+				<h2 id="alertTitle"></h2>
+				<p id="alertMsg"></p>
+				<button id="alertCancel" class="win-button win-button-primary" type="submit">Okay</button>
+			</form>
+			<form id="confirmationForm" class="passwordForm displayNone" onsubmit="return false;">
+				<h2 id="confirmationTitle"></h2>
+				<p id="confirmationMsg"></p>
+				<button id="confirmationSubmit" class="win-button win-button-primary" type="submit">Okay</button>
+				<button id="confirmationCancel" class="win-button" onclick="return false;">Cancel</button>
+			</form>
+		</div>
+				
+		<!-- JS Librarys -->
+		<script language="javascript" type="text/javascript" src="libs/core/jquery.min.js"></script> 
+		<script language="javascript" type="text/javascript" src="libs/core/setImmediate.js"></script>
+		<script language="javascript" type="text/javascript" src="libs/core/datepicker.min.js"></script>
+		<script language="javascript" type="text/javascript" src="dist/common.bundle.js"></script>
+
+		<!-- Global JS  -->
+		<script language="javascript" type="text/javascript" src="js/globalFragment.js"></script>
+		<script language="javascript" type="text/javascript" src="js/config.js"></script>
+		<script language="javascript" type="text/javascript" src="js/control.js"></script>	
+		<script language="javascript" type="text/javascript" src="js/user.js"></script>	
+
+		<!-- CSS -->	
+		<link href="css/singleItem.css" rel="stylesheet" />
+		<link href="css/listView.css" rel="stylesheet" />
+		<link href="style/react-select.css" rel="stylesheet" />
+		<link href="style/react-virtualized.css" rel="stylesheet" />
+		<link href="style/timesheet.css" rel="stylesheet" />
+
+		<!-- Load default.js Last -->
+		<script language="javascript" type="text/javascript" src="dist/index.bundle.js"></script>
+	</body>
+</html>

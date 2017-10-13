@@ -1,0 +1,46 @@
+
+/* Original Google Font Script
+
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'> 
+*/
+
+/* Font: Source Sans Pro */
+@font-face {  
+	font-family: 'Source Sans Pro';  
+	font-style: normal;  
+	font-weight: 300;  
+	src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(fonts/sourceSansPro_300.woff) format('woff');
+}
+@font-face {  
+	font-family: 'Source Sans Pro';  
+	font-style: normal;  
+	font-weight: 400;  
+	src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(fonts/sourceSansPro_400.woff) format('woff');
+}
+@font-face {  
+	font-family: 'Source Sans Pro';  
+	font-style: normal;  
+	font-weight: 600;  
+	src: local('Source Sans Pro Semibold'),	local('SourceSansPro-Semibold'), url(fonts/sourceSansPro_700.woff) format('woff');
+}
+
+/* Font: Lato */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(fonts/lato_300.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(fonts/lato_400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(fonts/lato_700.woff) format('woff');
+}
