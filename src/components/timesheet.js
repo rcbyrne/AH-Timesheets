@@ -92,6 +92,8 @@ function fallsInWeek(date, weekStart){
 	return false;
 }
 
+
+//Parent Timesheet Component
 export default class Timesheet extends Component {
 
 	constructor(props) {
@@ -280,6 +282,7 @@ export default class Timesheet extends Component {
 	}
 }
 
+//Shows Current Week and Allows Week to be Selected
 class WeekSelect extends Component {
 
 	render() {
@@ -306,17 +309,7 @@ class WeekSelect extends Component {
 	}
 }
 
-class TimesheetHead extends Component {
-
-	user = User.getUser();
-
-	render() {
-		return (
-			<h1 className="win-h1 win-type-ellipsis">Timesheet: {this.user.Name}</h1>
-		);
-	}
-}
-
+//For for entering new Entry
 class TimeForm extends Component {
 
 	selectDefaultJSX = {
@@ -560,6 +553,7 @@ class TimeForm extends Component {
 	}
 }
 
+//Select for picking AH-Project
 class ProjectSelect extends Component {
 
 	constructor(props) {
@@ -610,6 +604,7 @@ class ProjectSelect extends Component {
 	}
 }
 
+//Date Select Element
 class DateSelect extends Component {
 
 	constructor(props) {
@@ -727,6 +722,7 @@ class DateSelect extends Component {
 	}
 }
 
+//Report of current entries
 class TimeReport extends Component {
 
 	subRows(entry){
@@ -788,6 +784,8 @@ class TimeReport extends Component {
 	}
 }
 
+
+//Single Entry
 class DayEntry extends Component {
 
 	render() {
@@ -803,6 +801,8 @@ class DayEntry extends Component {
 	}
 }
 
+
+//Entry in Edit Mode
 class DayEdit extends Component {
 
 	constructor(props){
@@ -890,6 +890,7 @@ class DayEdit extends Component {
 	}
 }
 
+//Week Summary module allowing quick navigation
 class WeekSummary extends PureComponent {
 
 	constructor(props){
@@ -931,6 +932,7 @@ class WeekSummary extends PureComponent {
 	}
 }
 
+//Summaryb Object Row
 class SummaryObject extends Component {
 	
 	constructor(props){
