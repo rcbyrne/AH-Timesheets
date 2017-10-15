@@ -6,7 +6,7 @@ AH-Timesheets is a module from AH-ERP which has been stripped out for demo purpo
 
 ## Quickstart
 
-AH-Timesheets was built to be served off a WAMP server and NPM is only used for webpack. This demo saves to a global variable instead of a database. Excess code inside Config.js and Control.js
+AH-Timesheets was built to be served off a WAMP server and NPM is only used for webpack. This demo saves to a global variable instead of a database.
 
 1. `npm run dev` - Compiles the project uncompressed
 2. `npm run bunlde` - Complies the project minified
