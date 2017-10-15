@@ -7,7 +7,6 @@ import VirtualizedSelect from 'react-virtualized-select';
 let timeEntries = [];
 let projectList = [];
 
-
 //Generate dummy company data
 companyGenerator();
 function companyGenerator(){
@@ -72,8 +71,14 @@ function companyGenerator(){
 
 //Returns first day of the week as Date()
 function  returnFirstDay(newDate){
-	return new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() - newDate.getDay() + 1, 
-		0, 0, 0, 0);
+	const offset = [6, 0, 1, 2, 3, 4, 5];
+	const dateYear = newDate.getFullYear();
+	const dateMonth = newDate.getMonth();
+	const dateDate = newDate.getDate();
+	const dateDay = newDate.getDay();
+	const newDay = dateDate - offset[dateDay];
+
+	return new Date(dateYear, dateMonth, newDay, 12, 0, 0, 0);
 }
 
 //Check if day falls in a week
@@ -194,7 +199,7 @@ export default class Timesheet extends Component {
 		let totalTime = 0;
 
 		for (var i = 0; i < 7; i++) {
-			let subHeadDate = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate() + i, 0, 0, 0, 0);
+			let subHeadDate = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate() + i, 12, 0, 0, 0);
 			entries.push({
 				date: subHeadDate,
 				subTotal: 0,

@@ -3,7 +3,6 @@
 	<head>
 		<title>Andron Portal</title>
 		<meta charset="UTF-8"> 
-		<link rel="Site Icon" href="icon_128.png"> 
 
 		<!-- Lib CSS -->
 		<link href="libs/winjs/css/ui-light.css" rel="stylesheet" />
@@ -17,7 +16,6 @@
 		<!-- Win JS -->
 		<script src="libs/winjs/js/base.js"></script>
 		<script src="libs/winjs/js/ui.js"></script>
-		<!--<script src="libs/winjs/js/WinJSBrowserHistory.js"></script>-->
 	</head>
 	<body>
 		<!-- Wrapper -->
@@ -38,6 +36,9 @@
 				<button id="confirmationCancel" class="win-button" onclick="return false;">Cancel</button>
 			</form>
 		</div>
+
+		<!-- Fragment Target: Drawers -->
+		<div id="flyoutHost" class="fragmentContainer"></div>
 				
 		<!-- JS Librarys -->
 		<script language="javascript" type="text/javascript" src="libs/core/jquery.min.js"></script> 
@@ -46,14 +47,11 @@
 		<script language="javascript" type="text/javascript" src="dist/common.bundle.js"></script>
 
 		<!-- Global JS  -->
-		<script language="javascript" type="text/javascript" src="js/globalFragment.js"></script>
 		<script language="javascript" type="text/javascript" src="js/config.js"></script>
 		<script language="javascript" type="text/javascript" src="js/control.js"></script>	
 		<script language="javascript" type="text/javascript" src="js/user.js"></script>	
 
 		<!-- CSS -->	
-		<link href="css/singleItem.css" rel="stylesheet" />
-		<link href="css/listView.css" rel="stylesheet" />
 		<link href="style/react-select.css" rel="stylesheet" />
 		<link href="style/react-virtualized.css" rel="stylesheet" />
 		<link href="style/timesheet.css" rel="stylesheet" />

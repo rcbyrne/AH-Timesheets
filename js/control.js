@@ -498,7 +498,7 @@ JS LIBRARY FOR MANAGING PROPERTIES
     
     function pickDate(anchor, startDate, showClear){
         return new WinJS.Promise(function(complete, error, progress){
-            var flyoutEl = Control.getEl("flyoutHost", GlobalFragment.fragmentEls);
+            var flyoutEl = Control.getEl("flyoutHost", {});
             var options = {
                 anchor: anchor,
                 startDate: startDate,
@@ -510,7 +510,7 @@ JS LIBRARY FOR MANAGING PROPERTIES
             //Remove focus from element or
             //flyout will return focus when it closes
             anchor.blur();
-            WinJS.Navigation.loadFragment("pages/globalFragments/globalDatePicker/fragment_datePicker.html", flyoutEl, options);
+            WinJS.Navigation.loadFragment("src/es5Fragments/datePicker/datePicker.html", flyoutEl, options);
         });
 	};
     
